@@ -31,7 +31,6 @@ def log_info(message)
   return message
 end
 
-
 get '/' do
   status 200
   send_file 'index.html'
