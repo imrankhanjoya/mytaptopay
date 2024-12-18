@@ -30,6 +30,7 @@ def log_info(message)
   puts "\n" + message + "\n\n"
   return message
 end
+log_info(ENV['STRIPE_SECRET_KEY'])
 
 get '/' do
   status 200
@@ -38,6 +39,7 @@ end
 
 def validateApiKey
   if Stripe.api_key.nil? || Stripe.api_key.empty?
+    log_info(validationError)
     return "Error: you provided an empty secret key. Please provide your secret key. For more information, see https://stripe.com/docs/keys"
   end
   # if Stripe.api_key.start_with?('pk')
