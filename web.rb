@@ -30,7 +30,7 @@ def log_info(message)
   puts "\n" + message + "\n\n"
   return message
 end
-log_info(ENV['STRIPE_SECRET_KEY'])
+
 
 get '/' do
   status 200
